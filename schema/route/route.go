@@ -19,6 +19,10 @@ type Descriptor struct {
 	AuthType AuthType
 }
 
+func (d *Descriptor) Descriptor() *Descriptor {
+	return d
+}
+
 func Action(action string) *Descriptor {
 	return &Descriptor{
 		Action: action,
