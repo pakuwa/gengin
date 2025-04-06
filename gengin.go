@@ -1,4 +1,4 @@
-package main
+package gengin
 
 import "github.com/pakuwa/gengin/schema/route"
 
