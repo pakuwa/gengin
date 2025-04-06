@@ -9,5 +9,5 @@ deploy:
 		NEW_PATCH=$$((PATCH + 1)); \
 		NEW_TAG="$$MAJOR.$$MINOR.$$NEW_PATCH"; \
 	fi; \
-	git tag $$NEW_TAG; \
+	git tag v$$NEW_TAG; \
 	git push origin $$NEW_TAG
