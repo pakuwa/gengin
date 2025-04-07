@@ -16,8 +16,8 @@ type Descriptor struct {
 	Action   string
 	Method   string
 	Path     string
-	Req      any
-	Resp     any
+	ReqBody  any
+	RespBody any
 	AuthType AuthType
 }
 
@@ -31,27 +31,31 @@ func Action(action string) *Descriptor {
 	}
 }
 
-func (d *Descriptor) Get(path string, req any, resp any) *Descriptor {
+func (d *Descriptor) Get(path string) *Descriptor {
 	d.Method = "GET"
 	d.Path = path
-	d.Req = req
-	d.Resp = resp
 	return d
 }
 
-func (d *Descriptor) Post(path string, req any, resp any) *Descriptor {
+func (d *Descriptor) Request(body any) *Descriptor {
+	d.ReqBody = body
+	return d
+}
+
+func (d *Descriptor) Response(body any) *Descriptor {
+	d.RespBody = body
+	return d
+}
+
+func (d *Descriptor) Post(path string) *Descriptor {
 	d.Method = "POST"
 	d.Path = path
-	d.Req = req
-	d.Resp = resp
 	return d
 }
 
-func (d *Descriptor) Delete(path string, req any, resp any) *Descriptor {
+func (d *Descriptor) Delete(path string) *Descriptor {
 	d.Method = "DELETE"
 	d.Path = path
-	d.Req = req
-	d.Resp = resp
 	return d
 }
 
